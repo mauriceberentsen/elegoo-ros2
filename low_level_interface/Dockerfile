@@ -1,7 +1,7 @@
 # Use a minimal ROS 2 Humble image (Ubuntu 22.04-based).
 FROM ros:humble-ros-core
 
-# We’ll need bash for sourcing, so set the default shell and avoid interactive installs
+# We'll need bash for sourcing, so set the default shell and avoid interactive installs
 SHELL ["/bin/bash", "-c"]
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -26,4 +26,8 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["ros2", "run", "camera_servo", "camera_servo"]
+# Default to camera_servo node, but can be overridden with environment variables
+# Example: docker run -e ROS_PKG=robot_driver -e ROS_EXEC=robot_driver_node myimage
+ENV ROS_PKG=camera_servo
+ENV ROS_EXEC=camera_servo_node
+CMD ros2 run $ROS_PKG $ROS_EXEC
