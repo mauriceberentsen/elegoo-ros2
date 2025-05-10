@@ -89,6 +89,8 @@ class RobotDriverNode(Node):
         if abs(right_speed) < 10:
             right_speed = 0
         
+        self.get_logger().debug(f"Twist converted to motors: L={left_speed}, R={right_speed}")
+        
         # Use N=4 for independent motor control
         left_speed_abs = abs(left_speed)
         right_speed_abs = abs(right_speed)
