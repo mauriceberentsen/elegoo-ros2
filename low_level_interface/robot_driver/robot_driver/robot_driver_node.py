@@ -260,7 +260,7 @@ class RobotDriverNode(Node):
                     return
                     
                 duration_ms = int(parts[3])
-                duration_ms = max(0, min(10000, duration_ms))  # Cap at 10 seconds for safety
+                duration_ms = max(0, min(5000, duration_ms))  # Cap at 5 seconds for safety
                 
                 cmd = {
                     "N": 2,
