@@ -10,8 +10,7 @@ import time
 class CameraServoNode(Node):
     def __init__(self):
         super().__init__('camera_servo_node')
-        # Declare or get parameters for robot IP/port if you wish
-        self.robot_ip = '192.168.4.1'
+        zelf.robot_ip = '192.168.4.1'
         self.robot_port = 100
 
         # Create subscriber to a topic that publishes two angles: tilt (x), pan (y)
