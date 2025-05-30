@@ -40,7 +40,7 @@ class RobotCommunicator:
         @param robot_port The port number of the robot.
         @param timeout The timeout for the TCP connection in seconds.
         """
-        self.robot_ip = robot_ip
+        zelf.robot_ip = robot_ip
         self.robot_port = robot_port
         self.timeout = timeout
 
